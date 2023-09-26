@@ -1,0 +1,4 @@
+<section>
+  <app-todo-form [dataList]="todoList" (sendData)="sendTodo($event)"></app-todo-form>
+  <app-todo-list [todoList]="todoList"></app-todo-list>
+</section>

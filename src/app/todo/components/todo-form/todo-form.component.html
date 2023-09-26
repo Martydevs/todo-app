@@ -1,0 +1,15 @@
+<form [formGroup]="todoForm" autocomplete="off" (ngSubmit)="onSubmit()">
+  <div class="description-group">
+    <label for="description">Enter task description</label>
+    <input
+      type="text"
+      id="description"
+      formControlName="description"
+      placeholder="Buy some eggs"
+      #input
+    />
+  </div>
+
+  <button type="submit" [disabled]="input.value.length === 0">Add Todo</button>
+  <button type="submit" [disabled]="dataList.length <= 0">Remove Todo</button>
+</form>

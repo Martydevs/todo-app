@@ -1,0 +1,14 @@
+.description-group {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+form {
+  display: flex;
+  flex-flow: column wrap;
+  max-width: 22rem;
+  justify-content: center;
+  align-items: center;
+}
