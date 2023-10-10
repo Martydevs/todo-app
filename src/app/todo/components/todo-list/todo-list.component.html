@@ -1,5 +1,7 @@
-<dl>
-  <dd *ngFor="let todo of todoList; let i = index">
-    {{ i + 1 }} {{ todo.description }}
-  </dd>
-</dl>
+<ol>
+  <li *ngFor="let todo of todoList">
+    <p>{{ todo.description }}</p>
+    <input type="checkbox" id="todoIsCompleted" value="{{ todo.isCompleted }}" />
+    <button type="button">X</button>
+  </li>
+</ol>
