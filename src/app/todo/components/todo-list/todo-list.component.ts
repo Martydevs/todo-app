@@ -17,12 +17,6 @@ export class TodoListComponent {
   }
 
   checkTodo(el: ToDo) {
-    console.log(el)
-
-    if(el.isCompleted) {
-      el.isCompleted = false
-    } else {
-      el.isCompleted = true
-    }
+    el.isCompleted = !el.isCompleted;
   }
 }
