@@ -11,5 +11,5 @@
   </div>
 
   <button type="submit" [disabled]="input.value.length === 0">Add Todo</button>
-  <button type="submit" [disabled]="dataList.length <= 0">Remove Todo</button>
+  <button type="button" [disabled]="dataList.length <= 0" (click)="deleteAllTask()">Remove all</button>
 </form>
