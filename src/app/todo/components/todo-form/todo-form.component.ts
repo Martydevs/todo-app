@@ -27,5 +27,8 @@ export class TodoFormComponent implements OnInit {
     this.todoForm.reset()
   }
 
-  deleteTask(): void {}
+  deleteAllTask(): void {
+    const { length } = this.dataList
+    this.dataList.splice(0, length)
+  }
 }
