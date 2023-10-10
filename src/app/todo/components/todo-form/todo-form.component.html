@@ -1,15 +1,25 @@
-<form [formGroup]="todoForm" autocomplete="off" (ngSubmit)="onSubmit()">
-  <div class="description-group">
-    <label for="description">Enter task description</label>
-    <input
-      type="text"
-      id="description"
-      formControlName="description"
-      placeholder="Buy some eggs"
-      #input
-    />
-  </div>
+<section class="todo-form-container">
+  <form [formGroup]="todoForm" autocomplete="off" (ngSubmit)="onSubmit()">
+    <div class="field">
+      <label class="label" for="description">Ingresa la descripción de la tarea</label>
+      <section class="control">
+        <input
+          class="input"
+          type="text"
+          id="description"
+          formControlName="description"
+          placeholder="Buy some eggs"
+          #input
+        />
+      </section>
+    </div>
 
-  <button type="submit" [disabled]="input.value.length === 0">Add Todo</button>
-  <button type="button" [disabled]="dataList.length <= 0" (click)="deleteAllTask()">Remove all</button>
-</form>
+    <section class="field is-flex is-flex-wrap-wrap is-justify-content-space-between	is-align-items-center">
+      <button class="button is-primary" type="submit" [disabled]="input.value.length === 0">Añadir tarea</button>
+      <button class="button is-danger" type="button" [disabled]="dataList.length <= 0" (click)="deleteAllTask()">
+        Limpiar lista
+      </button>
+    </section>
+  </form>
+
+</section>

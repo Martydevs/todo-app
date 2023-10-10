@@ -5,13 +5,13 @@ import { ToDo } from '../../interfaces/todo-list.interface';
 @Component({
   selector: 'app-todo-form',
   templateUrl: './todo-form.component.html',
-  styleUrls: ['./todo-form.component.css'],
+  styleUrls: ['todo-form.component.css']
 })
 export class TodoFormComponent implements OnInit {
-  @Output() sendData = new EventEmitter<ToDo>();
-  @Input() dataList: ToDo[] = []
 
   public todoForm: FormGroup;
+  @Output() sendData = new EventEmitter<ToDo>();
+  @Input() dataList: ToDo[] = []
 
   constructor(private fb: FormBuilder) {
     this.todoForm = this.fb.group({
@@ -22,7 +22,7 @@ export class TodoFormComponent implements OnInit {
   ngOnInit(): void {}
 
   onSubmit(): void {
-    const todo: ToDo = this.todoForm.value;
+    const todo: ToDo = { description: this.todoForm.value.description, isCompleted: true }
     this.sendData.emit(todo)
     this.todoForm.reset()
   }

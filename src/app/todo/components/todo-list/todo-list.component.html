@@ -1,7 +1,26 @@
-<ol>
-  <li *ngFor="let todo of todoList">
-    <p>{{ todo.description }}</p>
-    <input type="checkbox" id="todoIsCompleted" value="{{ todo.isCompleted }}" />
-    <button type="button">X</button>
-  </li>
-</ol>
+<section class="todo-list-container">
+  <ng-template #ElseBlock>
+    <ol>
+      <li *ngFor="let todo of todoList">
+        <p>{{ todo.description }}</p>
+        <section class="field todo-btns">
+          <button class="button is-info" type="button" id="btnCheckTodo" (click)="checkTodo(todo)">
+            <span class="icon">
+              <i [ngClass]="{ 'fa-regular fa-square' : todo.isCompleted, 'fa-solid fa-square-check' : !todo.isCompleted }"></i>
+            </span>
+          </button>
+
+          <button class="button is-danger" type="button" id="btnRemoveTodo" (click)="removeTodo(todo)">
+            <span class="icon">
+              <i class="fas fa-trash"></i>
+            </span>
+          </button>
+        </section>
+      </li>
+    </ol>
+  </ng-template>
+
+  <div *ngIf="todoList.length === 0; else ElseBlock">
+    <p>Nada para mostrar</p>
+  </div>
+</section>

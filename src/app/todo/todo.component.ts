@@ -3,7 +3,8 @@ import { ToDo } from './interfaces/todo-list.interface';
 
 @Component({
   selector: 'todo-container',
-  templateUrl: 'todo-container.component.html'
+  templateUrl: 'todo-container.component.html',
+  styleUrls: ['todo-container.component.css']
 })
 
 export class ToDoComponent implements OnInit {
