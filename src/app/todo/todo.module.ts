@@ -4,7 +4,7 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 
 import { TodoFormComponent } from './components/todo-form/todo-form.component';
 import { TodoListComponent } from './components/todo-list/todo-list.component';
-import { ToDoComponent } from './todo.component';
+import { TodoContainerComponent } from './todo-container.component';
 
 @NgModule({
   imports: [
@@ -12,11 +12,11 @@ import { ToDoComponent } from './todo.component';
     ReactiveFormsModule,
     FormsModule
   ],
-  exports: [ToDoComponent],
+  exports: [TodoContainerComponent],
   declarations: [
     TodoFormComponent,
     TodoListComponent,
-    ToDoComponent
+    TodoContainerComponent
   ],
   providers: [],
 })
