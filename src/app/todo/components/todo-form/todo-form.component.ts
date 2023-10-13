@@ -22,7 +22,7 @@ export class TodoFormComponent implements OnInit {
   ngOnInit(): void {}
 
   onSubmit(): void {
-    const todo: ToDo = { description: this.todoForm.value.description, isCompleted: true }
+    const todo: ToDo = { description: this.todoForm.value.description, isCompleted: true, isSelected: false }
     this.sendData.emit(todo)
     this.todoForm.reset()
   }
