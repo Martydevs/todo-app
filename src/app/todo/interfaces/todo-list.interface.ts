@@ -1,4 +1,4 @@
 export interface ToDo {
-  description: string;
+  description: string | null;
   isCompleted: boolean;
 }

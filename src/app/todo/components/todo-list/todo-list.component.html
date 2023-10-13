@@ -2,19 +2,41 @@
   <ng-template #ElseBlock>
     <ol>
       <li *ngFor="let todo of todoList">
-        <p>{{ todo.description }}</p>
-        <section class="field todo-btns">
-          <button class="button is-info" type="button" id="btnCheckTodo" (click)="checkTodo(todo)">
-            <span class="icon">
-              <i [ngClass]="{ 'fa-regular fa-square' : todo.isCompleted, 'fa-solid fa-square-check' : !todo.isCompleted }"></i>
-            </span>
-          </button>
+        <section class="todo-content">
+          <ng-template #ElseTemplate>
+            <div class="field">
+              <div class="control is-flex is-align-items-center">
+                <input class="input" type="text" placeholder="Enter new todo" [formControl]="newTodo">
+                <button class="button is-success" (click)="updateTodo(todo)">
+                <span class="icon">
+                  <i class="fa-solid fa-check"></i>
+                </span>
+                </button>
+              </div>
+            </div>
+          </ng-template>
 
-          <button class="button is-danger" type="button" id="btnRemoveTodo" (click)="removeTodo(todo)">
+          <p *ngIf="!isSelectedUpdateTodo; else ElseTemplate">{{ todo.description }}</p>
+          <section class="field todo-btns">
+            <button class="button is-success is-medium" type="button" id="btnUpdateTodo" (click)="triggerToUpdateTodo()">
+            <span class="icon">
+              <i class="fa-solid fa-pen-to-square"></i>
+            </span>
+            </button>
+
+            <button class="button is-danger is-medium" type="button" id="btnRemoveTodo" (click)="removeTodo(todo)">
             <span class="icon">
               <i class="fas fa-trash"></i>
             </span>
-          </button>
+            </button>
+
+            <button class="button is-info is-medium" type="button" id="btnCheckTodo" (click)="checkTodo(todo)">
+            <span class="icon">
+              <i
+                [ngClass]="{ 'fa-regular fa-square' : todo.isCompleted, 'fa-solid fa-square-check' : !todo.isCompleted }"></i>
+            </span>
+            </button>
+          </section>
         </section>
       </li>
     </ol>
