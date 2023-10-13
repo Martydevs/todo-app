@@ -1,5 +1,5 @@
-import { Component, Input } from '@angular/core';
-import { ToDo } from '../../interfaces/todo-list.interface';
+import {Component, Input} from '@angular/core';
+import {ToDo} from '../../interfaces/todo-list.interface';
 import {FormControl} from "@angular/forms";
 
 @Component({
@@ -10,7 +10,6 @@ import {FormControl} from "@angular/forms";
 export class TodoListComponent {
   @Input() todoList: ToDo[] = [];
   public newTodo = new FormControl('')
-  public isSelectedUpdateTodo: boolean = false
 
   constructor() {}
 
@@ -19,13 +18,13 @@ export class TodoListComponent {
     this.todoList.splice(todoIndex, 1)
   }
 
-  triggerToUpdateTodo(): void {
-    this.isSelectedUpdateTodo = !this.isSelectedUpdateTodo;
+  triggerToUpdateTodo(el: ToDo): void {
+    el.isSelected = !el.isSelected
   }
 
   updateTodo(el: ToDo): void {
     el.description = this.newTodo.value
-    this.isSelectedUpdateTodo = false
+    el.isSelected = false
   }
 
   checkTodo(el: ToDo): void {

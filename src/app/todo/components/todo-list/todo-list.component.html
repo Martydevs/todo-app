@@ -6,8 +6,8 @@
           <ng-template #ElseTemplate>
             <div class="field">
               <div class="control is-flex is-align-items-center">
-                <input class="input" type="text" placeholder="Enter new todo" [formControl]="newTodo">
-                <button class="button is-success" (click)="updateTodo(todo)">
+                <input class="input" type="text" placeholder="Enter new todo" [formControl]="newTodo" #UpdateTodoInput>
+                <button class="button is-success" [disabled]=" UpdateTodoInput.value === '' " (click)="updateTodo(todo)">
                 <span class="icon">
                   <i class="fa-solid fa-check"></i>
                 </span>
@@ -16,9 +16,9 @@
             </div>
           </ng-template>
 
-          <p *ngIf="!isSelectedUpdateTodo; else ElseTemplate">{{ todo.description }}</p>
+          <p id="todo-description" *ngIf="!todo.isSelected; else ElseTemplate">{{ todo.description }}</p>
           <section class="field todo-btns">
-            <button class="button is-success is-medium" type="button" id="btnUpdateTodo" (click)="triggerToUpdateTodo()">
+            <button class="button is-success is-medium" type="button" id="btnUpdateTodo" (click)="triggerToUpdateTodo(todo)">
             <span class="icon">
               <i class="fa-solid fa-pen-to-square"></i>
             </span>
