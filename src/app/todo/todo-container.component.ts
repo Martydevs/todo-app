@@ -7,7 +7,7 @@ import { ToDo } from './interfaces/todo-list.interface';
   styleUrls: ['todo-container.component.css']
 })
 
-export class ToDoComponent implements OnInit {
+export class TodoContainerComponent implements OnInit {
   public todoList: ToDo[] = []
 
   constructor() { }
