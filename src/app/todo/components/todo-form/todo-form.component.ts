@@ -26,9 +26,11 @@ export class TodoFormComponent {
 
   onSubmit(): void {
     const todo: ToDo = { id: crypto.randomUUID(), description: this.todoForm.value.description, isCompleted: true, isSelected: false }
-    this.sendData.emit(todo)
-    this.saveTodoOnStorage(todo)
-    this.todoForm.reset()
+    if(this.todoForm.value.description) {
+      this.sendData.emit(todo)
+      this.saveTodoOnStorage(todo)
+      this.todoForm.reset()
+    }
   }
 
   deleteAllTask(): void {
